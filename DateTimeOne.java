@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 import java.text.SimpleDateFormat;
 
 public class DateTimeOne extends MesoDateTimeOneAbstract
@@ -21,12 +22,16 @@ public class DateTimeOne extends MesoDateTimeOneAbstract
 	   String strDate = formatter.format(date1);
 	   System.out.println("Current Date/Time: " + strDate);
 	   
-
    }
    
    void sleepForFiveSec()
    {
-	   
+	   try {
+		TimeUnit.SECONDS.sleep(5);
+	} catch (InterruptedException e) {
+		
+		e.printStackTrace();
+	}
    }
    
    void dateTimeOfOtherCity()

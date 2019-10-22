@@ -92,34 +92,75 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		formatter.setTimeZone(TimeZone.getTimeZone("GMT+8"));
 		timeZoneMap1.put("AST", formatter.format(new Date()));
 		
-		//Array for LocalDateTime
-		//Figure out  how to convert from String to LocalDateTime
+		//Create Array for LocalDateTime and store each time zone
 		LocalDateTime[] arr = new LocalDateTime[5];
-		
-		//Test zone
 		int i = 0;
 		for (Entry<String, String> entry : timeZoneMap1.entrySet()) {
 		    String key = entry.getKey();
-		    //String value = entry.getValue();
-		    
 			String str = timeZoneMap1.get(key);
 			DateTimeFormatter formatStyle = DateTimeFormatter.ofPattern("MM/dd/yyyy HH:mm");
 			LocalDateTime dateTime = LocalDateTime.parse(str, formatStyle);
 			arr[i] = dateTime;
-			System.out.println(arr[i]);
 			i++;
 		}
-
-
-
-		
-		//Test Zone
 		
 		//Sorted Style 1
+		int j = 0;
+		String temp;
+		String[] names = new String[5];
 		System.out.println("Print Style 1:");
+		for (Entry<String, String> entry : timeZoneMap1.entrySet()) {
+		    String key = entry.getKey();
+		    String value = entry.getValue();
+		    timeZoneMap2.put(value, key);
+		    names[j] = key + " " + value;
+		    j++;
+		}
+		//Compares the names of each array index
+		for(i = 0; i < 5; i++)
+        {
+            for(j = 1; j < 5; j++)
+            {
+                if(names[j-1].compareTo(names[j])>0)
+                {
+                    temp=names[j-1];
+                    names[j-1]=names[j];
+                    names[j]=temp;       
+                }
+            }
+        }
+		//Prints the sorted array based on name
+        for(i=0;i<5;i++)
+        {
+            System.out.println(names[i]);
+        }
 		
 		//Sorted Style 2
+        j = 0;
 		System.out.println("Print Style 3:");
+		for (Entry<String, String> entry : timeZoneMap2.entrySet()) {
+		    String key = entry.getKey();
+		    names[j] = key;
+		    j++;
+		}
+		
+		for(i = 0; i < 5; i++)
+        {
+            for(j = 1; j < 5; j++)
+            {
+                if(names[j-1].compareTo(names[j])>0)
+                {
+                    temp=names[j-1];
+                    names[j-1]=names[j];
+                    names[j]=temp;       
+                }
+            }
+        }
+		//Prints the sorted array based on name
+        for(i=0;i<5;i++)
+        {
+            System.out.println(names[i]);
+        }
 		
 		//Sorted Style 3
 		System.out.println("Print Style 5:");

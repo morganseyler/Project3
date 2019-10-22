@@ -58,7 +58,19 @@ public class DateTimeOne extends MesoDateTimeOneAbstract
    
    void dateTimeDifferentZone()
    {
+	   SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm ");
 	   
+	   //Time and date at GMT
+	   formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
+	   System.out.println("GMT: " + formatter.format(new Date()));
+	   
+	   //Time and date at BST
+	   formatter.setTimeZone(TimeZone.getTimeZone("GMT+6"));
+	   System.out.println("BST: " + formatter.format(new Date()));
+	  
+	   //Time and date at CST
+	   formatter.setTimeZone(TimeZone.getTimeZone("GMT-5"));
+	   System.out.println("CST: " + formatter.format(new Date()));
    }
    
    void timeZoneHashMap()

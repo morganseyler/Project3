@@ -164,21 +164,21 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		
 		//Sorted Style 5
 		System.out.println("Print Style 5:");
-		
+		LocalDateTime temp1;
 		for(i = 0; i < 5; i++)
         {
             for(j = 1; j < 5; j++)
             {
-                if(names[j-1].compareTo(names[j])>0)
+                if(arr[j-1].compareTo(arr[j])>0)
                 {
-                    temp=names[j-1];
-                    names[j-1]=names[j];
-                    names[j]=temp;       
+                    temp1=arr[j-1];
+                    arr[j-1]=arr[j];
+                    arr[j]=temp1;       
                 }
             }
         }
 		
-		for (i = 4; i >= 0; i++)
+		for (i = 4; i >= 0; i--)
 		{
 			System.out.println(arr[i]);
 		}

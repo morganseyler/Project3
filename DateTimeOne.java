@@ -5,8 +5,11 @@ import java.util.concurrent.TimeUnit;
 import java.text.SimpleDateFormat;
 
 public class DateTimeOne extends MesoDateTimeOneAbstract {
-	int getValueOfSecond() {
-		// change value to intended getValueOfSecond
+	
+	//First HashMap with initial TimeZones
+	HashMap<String, String> timeZoneMap1 = new HashMap<String, String>();
+	
+	public int getValueOfSecond() {
 		Date date1 = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("ss");
 		String strDate = formatter.format(date1);
@@ -15,7 +18,7 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		return value;
 	}
 
-	void dateTimeNow() {
+	public void dateTimeNow() {
 		Date date1 = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
 		String strDate = formatter.format(date1);
@@ -23,7 +26,7 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 
 	}
 
-	void sleepForFiveSec() {
+	public void sleepForFiveSec() {
 		try {
 			TimeUnit.SECONDS.sleep(5);
 		} catch (InterruptedException e) {
@@ -32,7 +35,7 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		}
 	}
 
-	void dateTimeOfOtherCity() {
+	public void dateTimeOfOtherCity() {
 		// Time on Server
 		Date date1 = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("HH:mm");
@@ -52,29 +55,46 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		System.out.println("CST (90W): " + formatter.format(new Date()));
 	}
 
-	void dateTimeDifferentZone() {
-		HashMap<String, String> timeZoneMap = new HashMap<String, String>();
+	public void dateTimeDifferentZone() {
+
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy HH:mm ");
 
 		// Time and date at GMT
 		formatter.setTimeZone(TimeZone.getTimeZone("GMT"));
-		timeZoneMap.put("GMT", formatter.format(new Date()));
+		timeZoneMap1.put("GMT", formatter.format(new Date()));
 		System.out.println("GMT: " + formatter.format(new Date()));
 
 		// Time and date at BST
 		formatter.setTimeZone(TimeZone.getTimeZone("GMT+6"));
-		timeZoneMap.put("BST", formatter.format(new Date()));
+		timeZoneMap1.put("BST", formatter.format(new Date()));
 		System.out.println("BST: " + formatter.format(new Date()));
 
 		// Time and date at CST
 		formatter.setTimeZone(TimeZone.getTimeZone("GMT-5"));
-		timeZoneMap.put("CST", formatter.format(new Date()));
+		timeZoneMap1.put("CST", formatter.format(new Date()));
 		System.out.println("CST: " + formatter.format(new Date()));
 		
-		System.out.println(timeZoneMap);
+		//Add 2 additional timeZones to timeZoneMap
+		
+		// Time and date at ZST
+		formatter.setTimeZone(TimeZone.getTimeZone("GMT-10"));
+		timeZoneMap1.put("ZST", formatter.format(new Date()));
+		
+		// Time and date at AST
+		formatter.setTimeZone(TimeZone.getTimeZone("GMT+8"));
+		timeZoneMap1.put("AST", formatter.format(new Date()));
 	}
 
-	void timeZoneHashMap() {
-
+	public void timeZoneHashMap() {
+		System.out.println(timeZoneMap1);
+		//Sorted Style 1
+		System.out.println("Print Style 1:");
+		
+		//Sorted Style 2
+		System.out.println("Print Style 2:");
+		
+		//Sorted Style 3
+		System.out.println("Print Style 3:");
+		
 	}
 }

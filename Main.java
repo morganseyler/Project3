@@ -95,5 +95,40 @@ public class Main
 	    dateTimeOne.dateTimeDifferentZone();
 	    System.out.println("\n");	    
 
+	    /**
+		 * Now add two more time zone like this: (These two may not be real time zone)
+		 * "ZST", "11/05/2018 19:59" and "AST", "10/01/2020 19:59".
+		 * For the details for these section See PDF section: Section 1 Extension, and come back here.
+		 * 
+		 * Output of the following method will be like (for grading you have to print only the following three style)
+		 * exactly as below:
+		 * 
+			Print Style 1:
+			AST 10/01/2020 19:59
+			BST 10/09/2019 02:48
+			CST 10/08/2019 15:48
+			GMT 10/08/2019 20:48
+			ZST 11/05/2018 19:59
+			Print Style 3:
+			10/01/2020 19:59
+			10/08/2019 15:48
+			10/08/2019 20:48
+			10/09/2019 02:48
+			11/05/2018 19:59
+			Print Style 5: Final sorted Array:
+			2020-10-01T19:59
+			2019-10-09T02:48
+			2019-10-08T20:48
+			2019-10-08T15:48
+			2018-11-05T19:59 
+		 * 
+		 * Look at the three style (1, 3, 5). They are giving you different types of sorted list that are confusing.
+		 * We need to solve it; however, this section is complete, now we will move to the next section.
+		 */
+	    dateTimeOne.timeZoneHashMap();
+	    
+	    System.out.println("\n");
+	  //  DateTimeTwo dateTimeTwo = new DateTimeTwo();
+
 	}
 }

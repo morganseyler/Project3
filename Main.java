@@ -61,6 +61,39 @@ public class Main
 	    dateTimeOne.dateTimeNow();	    
 	    //System.out.println("Time in the major Time Zone: ");	    
 	    
+	    
+	    System.out.println("\nTime at other zones:");
+	    /**
+		 * We have got time for our server but we have some major time zone in the world.
+		 * GMT is considered as zero degree (Greenwich Mean Time) which is GMT + 0 = GMT
+		 * BST is 90 degree East (Bangladesh Standard Time) which is 6 hours ahead of GMT, and
+		 * CST is 90 degree West (Central Standard Time) which is 5 hours behind of GMT during 
+		 * daylight saving. Otherwise, it is 6 hours.
+		 * We are not considering 0 or 180 degree.
+		 * 
+		 * Now, we will print the time for these four in a different way. Again, time should be
+		 * the current time; in your case, time of the server. Determine the format from the output given.
+		 * The output is here (pls look at the text sample, if needed).
+			Time on Server: 15:14
+			GMT: 20:14
+			BST (90E): 2:14
+			CST (90W): 15:14
+		 */
+	    dateTimeOne.dateTimeOfOtherCity();
+	    System.out.println("\nDate/time at other zones:");
+	    //dateTimeOne.dateTimeNow();
+	    
+	    /**
+		 * Now, you are familiar with different time zone.		 * 
+		 * Generate the following output. You should store the values in a Hashmap also. 
+		 * GMT, BST etc. will as key and time/date as value.
+		 * For this time, your Hashmap key and value should be String like HashMap<String, String> 
+			GMT: 10/08/2019 20:26
+			BST: 10/09/2019 02:26
+			CST: 10/08/2019 15:26
+		 */
+	    dateTimeOne.dateTimeDifferentZone();
+	    System.out.println("\n");	    
 
 	}
 }

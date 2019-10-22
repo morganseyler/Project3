@@ -135,14 +135,35 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
             System.out.println(names[i]);
         }
 		
-		//Sorted Style 2
-        j = 0;
+		//Sorted Style 3
 		System.out.println("Print Style 3:");
+        j = 0;
 		for (Entry<String, String> entry : timeZoneMap2.entrySet()) {
 		    String key = entry.getKey();
 		    names[j] = key;
 		    j++;
 		}
+		//Sorts the array
+		for(i = 0; i < 5; i++)
+        {
+            for(j = 1; j < 5; j++)
+            {
+                if(names[j-1].compareTo(names[j])>0)
+                {
+                    temp=names[j-1];
+                    names[j-1]=names[j];
+                    names[j]=temp;       
+                }
+            }
+        }
+		//Prints the sorted array in reverse order based on date
+        for(i = 4; i>=0;i--)
+        {
+            System.out.println(names[i]);
+        }
+		
+		//Sorted Style 5
+		System.out.println("Print Style 5:");
 		
 		for(i = 0; i < 5; i++)
         {
@@ -156,14 +177,10 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
                 }
             }
         }
-		//Prints the sorted array based on name
-        for(i=0;i<5;i++)
-        {
-            System.out.println(names[i]);
-        }
 		
-		//Sorted Style 3
-		System.out.println("Print Style 5:");
-		
+		for (i = 4; i >= 0; i++)
+		{
+			System.out.println(arr[i]);
+		}
 	}
 }

@@ -128,7 +128,76 @@ public class Main
 	    dateTimeOne.timeZoneHashMap();
 	    
 	    System.out.println("\n");
-	  //  DateTimeTwo dateTimeTwo = new DateTimeTwo();
+	    DateTimeTwo dateTimeTwo = new DateTimeTwo();
+	    /**
+		 * Section 2
+		 * 
+		 * From the next method, following output will be generated. Here, "THURSDAY" and "FRIDAY" are 
+		 * generated from two variables "tenthDay" and "eighteenthtDay"; 
+		 * Code is like: "The tenth day of this month is " + tenthDay + " and eighteenth is " + eighteenthtDay
+		 * Thus, you can get the DAY for any date of the current month.
+		 * Output: (the next line)
+		 * The tenth day of this month is THURSDAY and eighteenth is FRIDAY 
+		 */
+	    
+	    dateTimeTwo.daysOfCurrentMonth();
+	    System.out.println("\n");
+	    
+	    /**
+	     * Now make your above method generalize for any month and year
+	     * In the following, first parameter is month number and the second is year.
+	     * Output format is:
+			For the year (2019) and month (10), the fifteenth day is TUESDAY and the last day is THURSDAY
+			For the year (2019) and month (11), the fifteenth day is FRIDAY and the last day is SATURDAY
+			For the year (2020) and month (2), the fifteenth day is SATURDAY and the last day is SATURDAY
+			For the year (2000) and month (2), the fifteenth day is TUESDAY and the last day is TUESDAY
+		 */	    
+	    dateTimeTwo.daysOfAnyMonth(10, 2019);
+	    dateTimeTwo.daysOfAnyMonth(11, 2019);
+	    dateTimeTwo.daysOfAnyMonth(2, 2020);
+	    dateTimeTwo.daysOfAnyMonth(2, 2000);//many other values will be tested.
+	    System.out.println("\n");
+	    
+	    /**
+	     * 
+	     * Read the text file: Dates.txt
+	     * 
+	     * The contents are like: 
+			05.05.2017
+			01.01.2004
+	     * 
+	     * First you will determine the year is a leap year or not. In the second part, calculate the difference 
+	     * between today and the given date. Today means the server date during execution.
+	     * At the same time, save these date in a Hashmap as HashMap<LocalDate, Integer>
+	     * Keys are in the file, for map value use numeric values starting from 1. 
+	     * Output format is:
+			2017 is not a leap year, and Difference: 2 years, 5 months, and 3 days.
+			2004 is a leap year, and Difference: 15 years, 9 months, and 7 days.
+		 * 
+		 */
+	    dateTimeTwo.compareYear();
+	    System.out.println("\n");	    
+	    
+	    /**
+		 * Now print out your Hashmap. It may look like (This is the format, I didn't print whole map.
+		 * Key:value
+			2010-10-30:6
+			2019-05-30:3
+		 */
+	    
+	    dateTimeTwo.dateHashMap();
+	    System.out.println("\nNow the Hashmap:");	    
+	    
+	    /**
+		 * Sort your Hashmap ascending order using keys. 
+		 * You can see the difference between Section 1 sorted list and the Section 2 sorted list.
+		 * Write the difference in your documentation, and why?
+		 * Print the sorted Hashmap. It will be like:
+			1900-12-31:8
+			2000-12-15:5
+		 */
+	    dateTimeTwo.dateHashMapSorted();
+	    System.out.println("\nSorted map:");	    
 
 	}
 }

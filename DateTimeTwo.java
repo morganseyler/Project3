@@ -1,17 +1,29 @@
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
+
 
 public class DateTimeTwo {
 
 	private String tenthDay;
 	private String eighteenthDay;
 	private String fifteenthDay;
+	private String lastDay;
 	
 	public void daysOfCurrentMonth() {
 	    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE");
 		
 	    Date d1 = new Date();
+//	    Calendar calendar = new GregorianCalendar();
+//	    calendar.get(Calendar.DAY_OF_MONTH);
+	    
+	    
 		d1.setDate(10);
 	    tenthDay = simpleDateFormat.format(d1).toUpperCase();
 	    
@@ -23,16 +35,10 @@ public class DateTimeTwo {
 	}
 
 	public void daysOfAnyMonth(int month, int year) {
-	    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE");
-	    
-		Date date = new Date();
-		date.setMonth(month);
-		date.setYear(year);
-		date.setDate(15);
-	    fifteenthDay = simpleDateFormat.format(date).toUpperCase();
-		
-		System.out.println("For the year (" + year + ") and month (" + month + "), the fifteenth day is " + fifteenthDay + " and the last day is");
-		//For the year (2019) and month (10), the fifteenth day is TUESDAY and the last day is THURSDAY
+		DateFormat simpleDateFormat = new SimpleDateFormat("EEEE");
+
+		System.out.println("For the year (" + year + ") and month (" + month + "), the fifteenth day is " + fifteenthDay + " and the last day is " + lastDay);
+
 	}
 
 	public void compareYear() {

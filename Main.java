@@ -1,3 +1,4 @@
+
 /**
  * @author Mohammad Mukhtaruzzaman
  * @version 2019-10-08
@@ -61,7 +62,6 @@ public class Main
 	    dateTimeOne.dateTimeNow();	    
 	    //System.out.println("Time in the major Time Zone: ");	    
 	    
-	    
 	    System.out.println("\nTime at other zones:");
 	    /**
 		 * We have got time for our server but we have some major time zone in the world.
@@ -94,7 +94,7 @@ public class Main
 		 */
 	    dateTimeOne.dateTimeDifferentZone();
 	    System.out.println("\n");	    
-
+	    
 	    /**
 		 * Now add two more time zone like this: (These two may not be real time zone)
 		 * "ZST", "11/05/2018 19:59" and "AST", "10/01/2020 19:59".
@@ -198,6 +198,26 @@ public class Main
 		 */
 	    dateTimeTwo.dateHashMapSorted();
 	    System.out.println("\nSorted map:");	    
+	    
+	    /**
+		 * Section 3
+		 * For details first see the PDF Section 3 Extension
+		 * 
+		 */
+		String stId = "OKCE";
+		MesoAsciiCal asciiAverage = new MesoAsciiCal(new MesoStation(stId));
+		int asciiAvg = asciiAverage.calAverage();		
+
+		HashMap<String, Integer> asciiVal = new HashMap<String, Integer>();
+		asciiVal.put(stId, asciiAvg);
+		System.out.print("ASCII average: ");
+		//System.out.println(asciiAvg);
+		
+	    /**
+	     * Calculate and print the ASCII average as per PDF. This value for NRMN as a sample.
+		 * Output: 79
+		 */
+		System.out.println(asciiVal.get(asciiAvg));		
 
 	}
 }

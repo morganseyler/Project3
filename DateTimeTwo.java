@@ -40,7 +40,7 @@ public class DateTimeTwo {
 	}
 
 	public void daysOfAnyMonth(int month, int year) {
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE, yyyy, MM, dd");
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEEE");
 	    Calendar date = Calendar.getInstance();
 
 	    date.set(Calendar.MONTH, month-1);
@@ -56,23 +56,50 @@ public class DateTimeTwo {
 	    lastDay = simpleDateFormat.format(date.getTime()).toUpperCase();
 		
 		System.out.println("For the year (" + year + ") and month (" + month + "), the fifteenth day is " + fifteenthDay + " and the last day is " + lastDay);
-
 	}
 
 	public void compareYear() throws IOException {
+		
 		String filename = "Dates.txt";
 		BufferedReader br = new BufferedReader(new FileReader(filename));
 
 
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd:HH");
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM.dd.yyyy");
     	String lineOfData = br.readLine();
 		//convert String to LocalDate
 		LocalDate localDate = LocalDate.parse(lineOfData, formatter);
 		
+		
+	    Calendar date = Calendar.getInstance();
+		Calendar dateNow = Calendar.getInstance();
     	int value = 1;
 		while (lineOfData!=null)
     	{
+			
+			date.set(Calendar.MONTH, 1);
+			String sub2 = lineOfData.substring(6, 10);
+			int year = Integer.parseInt(sub2);
+			date.set(Calendar.YEAR, year);
+		    int end = date.getActualMaximum(Calendar.DAY_OF_MONTH);
+		    date.set(Calendar.DAY_OF_MONTH, end);
+		    date.getTime();
+		    
+		    int diffYears = dateNow.get(Calendar.YEAR) - date.get(Calendar.YEAR);
+		    int diffMonths = dateNow.get(Calendar.MONTH) - date.get(Calendar.MONTH);
+		    int diffDays = dateNow.get(Calendar.DAY_OF_MONTH) - date.get(Calendar.DAY_OF_MONTH);
 
+			if(end == 29)
+			{
+				System.out.println(year + " is a leap year, and Difference: " + diffYears + " years, " + diffMonths + " months, and " + diffDays + " days.");
+			}
+			else
+			{
+				System.out.println(year + " is not a leap year, and Difference: " + diffYears + " years, " + diffMonths + " months, and " + diffDays + " days.");
+			}
+			//2004 is a leap year, and Difference: 15 years, 9 months, and 9 days.
+			//1900 is not a leap year, and Difference: 118 years, 9 months, and 10 days.
+
+			
 			map.put(localDate, value);
 			value++;
 			// Get the next line of the file
@@ -80,6 +107,7 @@ public class DateTimeTwo {
     	}
 		
 		br.close();
+		
 		
 	}
 

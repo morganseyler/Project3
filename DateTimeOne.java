@@ -30,7 +30,7 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		System.out.println("Current Date/Time: " + strDate);
 
 	}
-
+	
 	public void sleepForFiveSec() {
 		try {
 			TimeUnit.SECONDS.sleep(5);
@@ -85,12 +85,12 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		//Add 2 additional timeZones to timeZoneMap
 		
 		// Time and date at ZST
-		formatter.setTimeZone(TimeZone.getTimeZone("GMT-10"));
-		timeZoneMap1.put("ZST", formatter.format(new Date()));
+
+		timeZoneMap1.put("ZST", "11/05/2018 19:59");
 		
 		// Time and date at AST
-		formatter.setTimeZone(TimeZone.getTimeZone("GMT+8"));
-		timeZoneMap1.put("AST", formatter.format(new Date()));
+
+		timeZoneMap1.put("AST", "10/01/2020 19:59");
 		
 		//Create Array for LocalDateTime and store each time zone
 		LocalDateTime[] arr = new LocalDateTime[5];
@@ -107,7 +107,7 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		//Sorted Style 1
 		int j = 0;
 		String temp;
-		String[] names = new String[5];
+		String[] names = new String[timeZoneMap1.size()];
 		System.out.println("Print Style 1:");
 		for (Entry<String, String> entry : timeZoneMap1.entrySet()) {
 		    String key = entry.getKey();
@@ -144,26 +144,23 @@ public class DateTimeOne extends MesoDateTimeOneAbstract {
 		    j++;
 		}
 		//Sorts the array
-		for(i = 0; i < 5; i++)
-        {
-            for(j = 1; j < 5; j++)
-            {
-                if(names[j-1].compareTo(names[j])>0)
-                {
-                    temp=names[j-1];
-                    names[j-1]=names[j];
-                    names[j]=temp;       
-                }
-            }
-        }
+	    for( i=0; i<names.length; i++) {
+	        for( j=0; j<names.length-1-i; j++) {
+	        if(names[j].compareTo(names[j+1])>0) {
+	            temp = names[j];
+	            names[j] = names[j+1];
+	            names[j+1] = temp;
+	        }
+	    }
+	    }
 		//Prints the sorted array in reverse order based on date
-        for(i = 4; i>=0;i--)
+        for(i = 0; i < 5; i++)
         {
             System.out.println(names[i]);
         }
 		
 		//Sorted Style 5
-		System.out.println("Print Style 5:");
+		System.out.println("Print Style 5: Final sorted Array:");
 		LocalDateTime temp1;
 		for(i = 0; i < 5; i++)
         {

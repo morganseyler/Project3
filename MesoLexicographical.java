@@ -7,22 +7,25 @@ import java.util.TreeMap;
 public class MesoLexicographical extends MesoSortedAbstract
 {
 
+	HashMap<String, Integer> asciiVal = new HashMap<String, Integer>();
+	
 	public MesoLexicographical(HashMap<String, Integer> asciiVal) {
-
-        TreeMap<String, Integer> sortList = new TreeMap<>(asciiVal);
-        Set<Entry<String, Integer>> getList = sortList.entrySet();
-        
-        for(Entry<String, Integer> sort : getList){
+		this.asciiVal = asciiVal;
+		
+		Map<String, Integer> print = sortedMap(asciiVal);
+		Set<Entry<String, Integer>> getEntries = print.entrySet();
+        for(Entry<String, Integer> sort : getEntries){
             System.out.println(sort.getKey());
         }
-		
+
 	}
 
 	@Override
 	Map<String, Integer> sortedMap(HashMap<String, Integer> unsorted) {
-		// TODO Auto-generated method stub
-		return null;
+		
+        TreeMap<String, Integer> sortList = new TreeMap<>(unsorted);
+
+		return sortList;
+
 	}
-
-
 }

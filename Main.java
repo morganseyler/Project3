@@ -202,7 +202,7 @@ public class Main
 	    /**
 		 * Section 3
 		 * For details first see the PDF Section 3 Extension
-		 * 
+		 *
 		 */
 		String stId = "OKCE";
 		MesoAsciiCal asciiAverage = new MesoAsciiCal(new MesoStation(stId));
@@ -217,7 +217,74 @@ public class Main
 	     * Calculate and print the ASCII average as per PDF. This value for NRMN as a sample.
 		 * Output: 79
 		 */
-		System.out.println(asciiVal.get(asciiAvg));		
+		System.out.println(asciiVal.get(stId));		
+		
+		MesoEquivalent mesoEqual = new MesoEquivalent(stId);		
+	    /**
+		 * Print the content of the hashmap
+		 * Output: 
+		 * {NRMN=79, OKMU=79, STIL=79, JAYX=79, NEWP=79, WOOD=79, STUA=79, WATO=79, MAYR=79, MRSH=79, WAUR=79}
+		 */
+		System.out.println("Stations are: "+ mesoEqual.calAsciiEqual());
+		
+		System.out.println("\nUnsroted Hashmap:");
+		asciiVal = mesoEqual.calAsciiEqual();		
+		for (String stIds : asciiVal.keySet()) 
+		{
+			//System.out.println(stIds + " " + asciiVal.get(stIds));
+			//Printing the unsorted map
+		    System.out.println(stIds + " " + asciiVal.get(stIds));		    
+		}		
+		
+	    /**
+		 * Sort your hashmap and print here
+		 */
+		//System.out.print("##");
+		System.out.println("\nThe sorted map:");
+		new MesoLexicographical(asciiVal);		
 
+	    /**
+		 * Section 4
+		 *   
+		 * For this section read the file, SortingDates.txt
+		 * Parse the file and store in a hashmap. The dates as the key and as a date format, not string
+		 * For example, HashMap<LocalDate, Integer>, but you can use any date function
+		 * format of the date will be: 2020-12-31
+		 * 
+		 * For this section, you have to sort using an algorithm (such as Quick sort, Bubble sort etc.)
+		 * Don't use any built-in function or other methods/map/list etc., you have to implement the algorithm
+		 * You are free to choose any algorithm you prefer to implement such as Quick sort, Bubble
+		 * sort, Radix sort, Insertion sort etc.
+		 */
+		System.out.println("\nFinally, the dates in HashMap are sorted using algorithm:\n");
+	    DateSortingUsingAlgorithm dateSortingUsingAlgorithm = new DateSortingUsingAlgorithm();	    
+	    
+	    /**
+		 * Sort the hashmap in descending order
+		 * Output will be like:
+		 * 2026-05-06
+		 * 2021-03-31
+		 * 2020-12-31
+		 */
+	    System.out.println("Sorting of the dates in descending order:");
+	    long startTime = System.nanoTime();  
+	    dateSortingUsingAlgorithm.dateHashMapSortedDescending();
+	    long estimatedTime = System.nanoTime() - startTime;
+	    
+	    /**
+		 * Sort the hashmap in ascending order.		 * 
+		 * Output will be like:
+		 * 2011-03-15
+		 * 2012-10-10
+		 * 2014-02-28
+		 */
+	    System.out.println("Sorting of the dates in ascending order:");
+	    long startTime2 = System.nanoTime();  
+	    dateSortingUsingAlgorithm.dateHashMapSorted();
+	    long estimatedTime2 = System.nanoTime() - startTime2;
+	    
+	    System.out.println("\nExecution time for case 1: " + estimatedTime);
+	    System.out.println("Execution time for case 2: " + estimatedTime2);
+	    //You can see the difference in two execution times, why? explain in your documentation.
 	}
 }

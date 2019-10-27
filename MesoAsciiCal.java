@@ -8,6 +8,7 @@ public class MesoAsciiCal extends MesoAsciiAbstract
 {
 	private MesoStation mesoStation;
 	private int[] stationArray = new int[3];
+	private int NRMNAverage = 79;
 	public MesoAsciiCal(MesoStation mesoStation) {
 		// TODO Auto-generated constructor stub
 		this.mesoStation = mesoStation;
@@ -34,8 +35,10 @@ public class MesoAsciiCal extends MesoAsciiAbstract
 		{
 			stationArray[2] = (int) (Math.floor(average));
 		}
+		double finalAvg = ((double) stationArray[2] + (double) NRMNAverage) / 2;
+		int finalnum = (int) finalAvg;
 		
-		return stationArray[2];
+		return finalnum;
 	}
 	
 	
